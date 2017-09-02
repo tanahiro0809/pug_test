@@ -1,33 +1,14 @@
-<!DOCTYPE html>
-html(lang="ja")
-  head
-    meta(http-equiv="X-UA-Compatible" content="IE=edge")
-    meta(charset="UTF-8")
-    include _includes/_head_meta.pug
-    title pugてすと
-    include _includes/_head_tag.pug
-  body
-    include _includes/_body_top.pug
-    main
-      h1.ttl-1 たなか
-      ul.lst-a
-        li: a(href="#") top
-        li: a(href="#") contents
-      p.txt-t
-        | tanaka
-        br
-        | hiroshi
-      ol.lst-ol
-        li tanaka
-        li: a(href="#")
-      section.sec-2
-        p.txt-st たなか
-        table.tbl-a
-          tbody
-            tr
-              th せる2
-              td セル
-            tr
-              th(colspan="2")
-        p たなか
-    include _includes/_body_bottom.pug
+//- テンプレート読み込み
+extend _includes/_layout
+
+//-　ページ独自の設定
+append pagedata
+  - var pageTitle= "トップページ";
+  - var pageDescription= "ページの説明";
+  - var pageKeywords= "keyword01,keyword2,keyword03";
+
+//- ページのコンテンツ
+block main
+  main.main
+    h2 Pugでhtml作ったよ
+    p Pugって楽しいね！！！！

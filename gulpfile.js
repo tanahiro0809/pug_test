@@ -58,6 +58,9 @@ gulp.task(`pug`, function() {
   return gulp.src(
      [`${SRC_DIR}/**/*.pug`,'!' + `${SRC_DIR}/**/_*.pug`]
   )
+//  .pipe(data(function(file){
+//    return JSON.parse(fs.readFileSync(`${SRC_DIR}/_data/pages.json`))
+//  }))
   .pipe(plumber({
     errorHandler: notify.onError(`pugにエラーがあります`)
   }))
