@@ -1,0 +1,9 @@
+{
+  "pages": {
+    "index": {
+      "id": "index",
+      "title": "トップページ",
+      "description": "トップページディスクリプション"
+    }
+  }
+}

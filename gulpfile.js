@@ -23,6 +23,7 @@ const connectSSI = require(`connect-ssi`);
 const webserver = require(`gulp-webserver`);
 const gulp = require(`gulp`);
 const pug = require('gulp-pug');
+const data = require('gulp-data');
 const htmlhint = require(`gulp-htmlhint`);
 const notify = require(`gulp-notify`);
 const plumber = require(`gulp-plumber`);
