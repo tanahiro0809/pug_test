@@ -55,12 +55,13 @@ gulp.task(`sass`, function() {
 
 //Pug
 gulp.task(`pug`, function() {
+  var jsonPath = './src/http/data/pages.json';
   return gulp.src(
      [`${SRC_DIR}/**/*.pug`,'!' + `${SRC_DIR}/**/_*.pug`]
   )
-//  .pipe(data(function(file){
-//    return JSON.parse(fs.readFileSync(`${SRC_DIR}/_data/pages.json`))
-//  }))
+  .pipe(data(function(file){
+    return JSON.parse(fs.readFileSync(jsonPath))
+  }))
   .pipe(plumber({
     errorHandler: notify.onError(`pugにエラーがあります`)
   }))

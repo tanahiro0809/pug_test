@@ -28,6 +28,7 @@
     "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.3.0",
     "gulp-sass": "^3.1.0",
-    "gulp-webserver": "^0.9.1"
+    "gulp-webserver": "^0.9.1",
+    "path": "^0.12.7"
   }
 }
