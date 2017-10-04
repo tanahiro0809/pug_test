@@ -22,10 +22,11 @@ const autoprefixer = require(`gulp-autoprefixer`);
 const connectSSI = require(`connect-ssi`);
 const webserver = require(`gulp-webserver`);
 const gulp = require(`gulp`);
-const pug = require('gulp-pug');
-const data = require('gulp-data');
+const pug = require(`gulp-pug`);
+const data = require(`gulp-data`);
 const htmlhint = require(`gulp-htmlhint`);
 const notify = require(`gulp-notify`);
+const path = require(`path`);
 const plumber = require(`gulp-plumber`);
 const header = require(`gulp-header`);
 const sass = require(`gulp-sass`);
@@ -53,19 +54,25 @@ gulp.task(`sass`, function() {
   .pipe(notify(`Sassをコンパイルしました`));
 });
 
-//Pug
+
 gulp.task(`pug`, function() {
-  var jsonPath = './src/http/data/pages.json';
+  // JSONファイルの読み込み。
+  var locals = {
+    'site': JSON.parse(fs.readFileSync('./src/http/data/site.json'))
+  }
   return gulp.src(
      [`${SRC_DIR}/**/*.pug`,'!' + `${SRC_DIR}/**/_*.pug`]
   )
-  .pipe(data(function(file){
-    return JSON.parse(fs.readFileSync(jsonPath))
-  }))
   .pipe(plumber({
     errorHandler: notify.onError(`pugにエラーがあります`)
   }))
+  .pipe(data(function(file) {
+    locals.relativePath = path.relative(file.base, file.path.replace(/.pug$/, '.html'));
+      return locals;
+  }))
   .pipe(pug({
+    locals: locals,
+    baseDir: `${DIST_DIR}/http`,
     pretty: true
   }))
   .pipe(gulp.dest(`${DIST_DIR}`))

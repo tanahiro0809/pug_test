@@ -2,13 +2,20 @@
 extend _includes/_layout
 
 //-　ページ独自の設定
-append pagedata
-  - var pageTitle= "トップページ";
-  - var pageDescription= "ページの説明";
-  - var pageKeywords= "keyword01,keyword2,keyword03";
-
+append variables
+  - var pageKeywords= site.keywords;
 //- ページのコンテンツ
 block main
+  meta(name="keywords" content=pageKeywords)
   main.main
-    h2 Pugでhtml作ったよ
-    p Pugって楽しいね！！！！
+    section
+      h2 Pugでhtml作ったよ
+      p Pugって楽しいね！！！！
+      ul.lst-test
+        li リスト
+        li リスト
+      ol.lst-test2
+        li テスt
+    section
+      h2 pug
+      p あああい
