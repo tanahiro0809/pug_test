@@ -1,0 +1,21 @@
+//- テンプレート読み込み
+extend /_includes/_layout
+
+//-　ページ独自の設定
+append variables
+  - var pageKeywords= site.keywords;
+//- ページのコンテンツ
+block main
+  meta(name="keywords" content=pageKeywords)
+  main.main
+    section
+      h2 Pugでhtml作ったよ
+      p Pugって楽しいね！！！！
+      ul.lst-test
+        li リスト
+        li リスト
+      ol.lst-test2
+        li テスt
+    section
+      h2 pug
+      p あああい
