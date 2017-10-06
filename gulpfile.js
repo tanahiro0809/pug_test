@@ -56,9 +56,10 @@ gulp.task(`sass`, function() {
 
 
 gulp.task(`pug`, function() {
-  const jsonRoot = `src/http/data/`;
+  const jsonPath = `${SRC_DIR}/http/data/`;
+  const pugRoot = `${SRC_DIR}/http/`;
   const locals = {
-    'site': JSON.parse(fs.readFileSync(jsonRoot + `site.json` ,`utf8`))
+    'site': JSON.parse(fs.readFileSync(jsonPath + `site.json` ,`utf8`))
   }
   return gulp.src(
      [`${SRC_DIR}/**/*.pug`,'!' + `${SRC_DIR}/**/_*.pug`]
@@ -72,7 +73,7 @@ gulp.task(`pug`, function() {
   }))
   .pipe(pug({
     locals: locals,
-    baseDir: `${SRC_DIR}/http`,
+    basedir: pugRoot,
     pretty: true
   }))
   .pipe(gulp.dest(`${DIST_DIR}`))
