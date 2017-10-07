@@ -1,21 +1,18 @@
-//- テンプレート読み込み
-extends /_includes/_layout
-
-//-　ページ独自の設定
+extend /_includes/_layout
 append variables
+  //- Required
+  - var pageTitle= "第二階層";
+  - var pageDescription= site.description;
   - var pageKeywords= site.keywords;
-//- ページのコンテンツ
-block main
-  meta(name="keywords" content=pageKeywords)
-  main.main
-    section
-      h2 Pugでhtml作ったよ
-      p Pugって楽しいね！！！！
-      ul.lst-test
-        li リスト
-        li リスト
-      ol.lst-test2
-        li テスt
-    section
-      h2 pug
-      p あああい
+  //- Optional
+  - var pageOgpTitle= "第二階層";
+  - var pageOgpImage= site.ogpImage
+  - var pageLang= "ja";
+  - var pageOgpType= "article";
+  //- Not modified
+  - var pageUrl= relativePath;
+
+block content
+  // contents
+  p Contents
+  // /contents

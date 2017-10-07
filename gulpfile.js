@@ -68,7 +68,7 @@ gulp.task(`pug`, function() {
     errorHandler: notify.onError(`pugにエラーがあります`)
   }))
   .pipe(data(function(file) {
-    locals.relativePath = path.relative(file.base, file.path.replace(/.pug$/, '.html'));
+    locals.relativePath = path.relative('src/http', file.path.replace(/.pug$/, '.html'));
       return locals;
   }))
   .pipe(pug({
