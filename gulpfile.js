@@ -80,6 +80,21 @@ gulp.task(`pug`, function() {
   .pipe(notify(`pugをコンパイルしました`))
 });
 
+//function pugSetVars(file) {
+//  //jsonファイルPath
+//  var _json = require(jsonPath);z
+//  var r_filename = "/" + filename.replace(/\\/g, '/');
+//  var file_ary = r_filename.split("/");
+//  return {
+//    __dirname: file_ary,
+//    __filename: r_filename,
+//    config: {
+//      default: _json.default,
+//      local: _json.local[r_filename]
+//    }
+//  };
+//}
+
 //html-hint
 gulp.task(`html-hint`, function() {
   gulp.src([`${DIST_DIR}/**/*.html`, `!${DIST_DIR}/**/ssi/**/*.html`])
