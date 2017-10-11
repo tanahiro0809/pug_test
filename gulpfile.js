@@ -24,7 +24,6 @@ const webserver = require(`gulp-webserver`);
 const gulp = require(`gulp`);
 const pug = require(`gulp-pug`);
 const data = require(`gulp-data`);
-const changed = require(`gulp-changed`);
 const htmlhint = require(`gulp-htmlhint`);
 const notify = require(`gulp-notify`);
 const path = require(`path`);
@@ -77,10 +76,24 @@ gulp.task(`pug`, function() {
     basedir: pugRoot,
     pretty: true
   }))
-  .pipe(changed(`${DIST_DIR}`))
   .pipe(gulp.dest(`${DIST_DIR}`))
   .pipe(notify(`pugをコンパイルしました`))
 });
+
+//function pugSetVars(file) {
+//  //jsonファイルPath
+//  var _json = require(jsonPath);z
+//  var r_filename = "/" + filename.replace(/\\/g, '/');
+//  var file_ary = r_filename.split("/");
+//  return {
+//    __dirname: file_ary,
+//    __filename: r_filename,
+//    config: {
+//      default: _json.default,
+//      local: _json.local[r_filename]
+//    }
+//  };
+//}
 
 //html-hint
 gulp.task(`html-hint`, function() {
