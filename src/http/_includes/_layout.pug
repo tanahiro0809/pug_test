@@ -14,13 +14,12 @@ html(lang=ja)
     meta(property="og:type" content=site[pageId].ogpType)
     meta(property="og:image" content=site.ogpImage)
     meta(property="og:url" content=site.rootUrl + pageUrl)
-    meta(property="og:description" content=pageDescription)
-    meta(property="og:site_name" content=site[pageId].title)
+    meta(property="og:description" content=site[pageId].description)
+    meta(property="og:site_name" content=site.name)
     //- /OGP
 
     block css
       link(rel="stylesheet" href="/common/css/common.css")
-
 
   body
     include /_includes/_header
