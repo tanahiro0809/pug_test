@@ -13,6 +13,8 @@ const port = {};
 port.http = 33556;
 port.https = 43556;
 
+const DATA_JSON_NAME = `site.json`;
+
 // 以降は触らない
 
 const SRC_DIR = `src`;
@@ -59,7 +61,7 @@ gulp.task(`pug`, function() {
   const jsonPath = `${SRC_DIR}/http/data/`;
   const pugRoot = `${SRC_DIR}/http/`;
   const locals = {
-    'site': JSON.parse(fs.readFileSync(jsonPath + `site.json` ,`utf8`))
+    'site': JSON.parse(fs.readFileSync(jsonPath + DATA_JSON_NAME ,`utf8`))
   }
   return gulp.src(
      [`${SRC_DIR}/**/*.pug`,'!' + `${SRC_DIR}/**/_*.pug`]
@@ -68,7 +70,7 @@ gulp.task(`pug`, function() {
     errorHandler: notify.onError(`pugにエラーがあります`)
   }))
   .pipe(data(function(file) {
-    locals.relativePath = path.relative('src/http', file.path.replace(/.pug$/, '.html'));
+    locals.relativePath = path.relative(pugRoot, file.path.replace(/.pug$/, '.html'));
       return locals;
   }))
   .pipe(pug({
@@ -79,22 +81,6 @@ gulp.task(`pug`, function() {
   .pipe(gulp.dest(`${DIST_DIR}`))
   .pipe(notify(`pugをコンパイルしました`))
 });
-
-//function pugSetVars(file) {
-//  //jsonファイルPath
-//  const jsonPath = `${SRC_DIR}/http/data/site.json`;
-//  var _json = require(jsonPath);
-//  var r_filename = "/" + filename.replace(/\\/g, '/');
-//  var file_ary = r_filename.split("/");
-//  return {
-//    __dirname: file_ary,
-//    __filename: r_filename,
-//    config: {
-//      default: _json.default,
-//      local: _json.local[r_filename]
-//    }
-//  };
-//}
 
 //html-hint
 gulp.task(`html-hint`, function() {
