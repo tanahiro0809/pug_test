@@ -82,7 +82,8 @@ gulp.task(`pug`, function() {
 
 //function pugSetVars(file) {
 //  //jsonファイルPath
-//  var _json = require(jsonPath);z
+//  const jsonPath = `${SRC_DIR}/http/data/site.json`;
+//  var _json = require(jsonPath);
 //  var r_filename = "/" + filename.replace(/\\/g, '/');
 //  var file_ary = r_filename.split("/");
 //  return {
