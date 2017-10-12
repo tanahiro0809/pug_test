@@ -1,9 +1,9 @@
 {
-    "name": "サイトの名前",
-    "rootUrl": "http://example.com/",
-    "ogpImage": "http://example.com/og-image.jpg",
-    "id": "index",
-    "title": "トップページタイトル",
-    "description": "トップページディスクリプション",
-    "keywords": "サイトのキーワード1, サイトのキーワード2"
+  "name": "サイトの名前",
+  "rootUrl": "http://example.com/",
+  "ogpImage": "http://example.com/og-image.jpg",
+  "id": "index",
+  "title": "トップページタイトル",
+  "description": "トップページディスクリプション",
+  "keywords": "サイトのキーワード1, サイトのキーワード2"
 }
