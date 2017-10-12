@@ -6,27 +6,21 @@ html(lang=ja)
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     meta(name="format-detection" content="telephone=no")
-    if pageTitle
-      title #{pageTitle} | #{site.name}
-    else
-      title #{site.name}
-    meta(name="description" content=pageDescription)
-    meta(name="keywords" content=pageKeywords)
+    title #{site[pageId].title}
+    meta(name="description" content=site[pageId].description)
+    meta(name="keywords" content=site[pageId].keywords)
+    //- OGP
+    meta(property="og:title" content=site[pageId].title)
+    meta(property="og:type" content=site[pageId].ogpType)
+    meta(property="og:image" content=site.ogpImage)
+    meta(property="og:url" content=site.rootUrl + pageUrl)
+    meta(property="og:description" content=pageDescription)
+    meta(property="og:site_name" content=site[pageId].title)
+    //- /OGP
 
     block css
       link(rel="stylesheet" href="/common/css/common.css")
 
-    //- OGP
-    if pageOgpTitle
-      meta(property="og:title" content=pageOgpTitle + ' | ' + site.name)
-    else
-    meta(property="og:title" content=site.name)
-    meta(property="og:type" content=pageOgpType)
-    meta(property="og:image" content=pageOgpImage)
-    meta(property="og:url" content=site.rootUrl + pageUrl)
-    meta(property="og:description" content=pageDescription)
-    meta(property="og:site_name" content=site.name)
-    //- /OGP
 
   body
     include /_includes/_header
