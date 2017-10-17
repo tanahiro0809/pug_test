@@ -1,3 +1,6 @@
 header.l-header
   .l-inner
-    p.logo ロゴ
+    if pageId=='001'
+      h1.logo: a(href="/") ロゴ
+    else
+      p.logo: a(href="/") ロゴ

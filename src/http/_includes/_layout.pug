@@ -17,14 +17,19 @@ html(lang=ja)
     meta(property="og:description" content=site[pageId].description)
     meta(property="og:site_name" content=site.name)
     //- /OGP
-
     block css
       link(rel="stylesheet" href="/common/css/common.css")
 
   body
     include /_includes/_header
 
-    block content
+    block main
+      main.l-body
+        .l-inner メインコンテンツ
+          if pageId=='001'
+            h2.hdg-lv1 #{site[pageId].hdg}
+          else
+            h1.hdg-lv1 #{site[pageId].hdg}
 
     include /_includes/_footer
     include /_includes/_script

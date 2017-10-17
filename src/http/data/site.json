@@ -7,12 +7,14 @@
     "title": "トップページタイトル",
     "description": "トップページディスクリプション",
     "keywords": "サイトのキーワード1, サイトのキーワード2",
-    "ogpType": "website"
+    "ogpType": "website",
+    "hdg": "h1見出し"
   },
   "002": {
     "title": "第二階層 | トップページタイトル",
     "description": "第二階層ディスクリプション",
     "keywords": "第二階層のキーワード1, 第二階層のキーワード2",
-    "ogpType": "article"
+    "ogpType": "article",
+    "hdg": "第二階層h1見出し"
   }
 }

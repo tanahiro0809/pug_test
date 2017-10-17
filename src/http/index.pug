@@ -3,6 +3,7 @@ extend /_includes/_layout
 append variables
   - var pageId = "001"
   - var pageUrl= relativePath;
+  - var layoutType= top;
 
-block content
-  p テスト1
+append css
+  link(rel="stylesheet" href="/common/css/top.css")
