@@ -1,0 +1,15 @@
+if pageLayout=='top'
+  main.l-body-top
+    .l-inner メインコンテンツ
+      h2.hdg-lv1 #{site[pageId].hdg}
+
+      block main
+
+else if pageLayout=='typeA'
+  main.l-body
+    .l-inner メインコンテンツ
+      h1.hdg-lv1 #{site[pageId].hdg}
+      .l-body-main
+      .l-body-side
+
+      block main

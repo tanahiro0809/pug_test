@@ -24,13 +24,7 @@ html(lang=ja)
   body
     include /_includes/_header
 
-    block main
-      main.l-body
-        .l-inner メインコンテンツ
-          if pageId=='001'
-            h2.hdg-lv1 #{site[pageId].hdg}
-          else
-            h1.hdg-lv1 #{site[pageId].hdg}
+    include /_includes/_main
 
     include /_includes/_footer
     include /_includes/_script

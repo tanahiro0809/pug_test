@@ -1,8 +1,12 @@
 extend /_includes/_layout
 
 append variables
-  - var pageId = "001"
-  - var pageUrl= relativePath;
+  - var pageId = '001';
+  - var pageLayout = 'top';
+  - var pageUrl = relativePath;
 
 append css
   link(rel="stylesheet" href="/common/css/top.css")
+
+block main
+  p てすと
